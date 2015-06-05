@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= movie_title %></title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+  </head>
+
+  <body>
+
+
+    <h1><%= movie_title %></h1>
+    <table id="genre">
+      <tr>
+        <td><strong>Genre:</strong></td>
+        <td><%= movie_info[0]["genre"] %></td>
+      </tr>
+      <table>
+        <tr>
+          <td><strong>Studio:</strong></td>
+          <td><%= movie_info[0]["studio"] %></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table id="characters">
+      <tr>
+        <td><strong>Actor Name</strong></td>
+        <td><strong>Character</strong></td>
+      </tr>
+      <% movie_info.each do |hash| %>
+        <% if hash["character"] == nil %>
+          <tr>
+            <td><a href="/actors/<%= hash["name"] %>"><%= hash["name"] %></a></td>
+            <td>Info Not Available</td>
+          </tr>
+        <% else %>
+          <tr>
+            <td><a href="/actors/<%= hash["name"] %>"><%= hash["name"] %></a></td>
+            <td><%= hash["character"] %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+    <br>
+
+    <div><a href="/movies">Home</a></div>
+  </body>
+</html>

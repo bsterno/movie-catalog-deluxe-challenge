@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= actor_name %></title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+  </head>
+
+  <body>
+
+    <h1><%= actor_name %></h1>
+
+    <table id="titles">
+      <tr>
+        <td<strong>Movie Title</strong></td>
+        <td<strong>Character</strong></td>
+      </tr>
+      <% actor_info.each do |hash| %>
+        <% if hash["character"] == nil %>
+          <tr>
+            <td><a href="/movies/<%= hash['title'] %>"><%= hash["title"] %></a></td>
+            <td>Information Not Available</td>
+          </tr>
+        <% else %>
+            <tr>
+              <td><a href="/movies/<%= hash['title'] %>"><%= hash["title"] %></a></td>
+              <td><%= hash["character"] %></td>
+            </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+    <br>
+
+    <div><a href="/movies">Home</a><div>
+
+  </body>
+</html>

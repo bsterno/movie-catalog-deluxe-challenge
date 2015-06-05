@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Actors</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+  </head>
+
+  <body>
+    <h1>Actors</h1>
+
+    <ul id="actors">
+      <% actors.each do |hash| %>
+        <li><a href="/actors/<%= hash["name"] %>"><%= hash["name"]%></a></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
